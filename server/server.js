@@ -1,13 +1,13 @@
-/**
- * server.js
- * 
- */
+// server.js
+let Koa = require('koa');
+let router = require('./routes');
 
-const Koa = require('koa');
+let port = 8088; //服务器端口号
+
 const app = new Koa();
 
-app.use(async ctx => {
-  ctx.body = 'Hello World';
-});
+app.use(router.routes(), router.allowedMethods());
 
-app.listen(8088);
+app.listen(port,() => {
+  console.log(`Starting at port ${port}`)
+});
