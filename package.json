@@ -9,12 +9,15 @@
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
-    "server": "node server/server.js"
+	"server": "node server/server.js",
+	"startdb": "mongod --config startdb.conf"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "dayjs": "^1.7.5",
     "koa": "^2.5.2",
     "koa-router": "^7.4.0",
+    "mongoose": "^5.2.8",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

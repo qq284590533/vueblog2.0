@@ -1,13 +1,20 @@
 // server.js
-let Koa = require('koa');
-let router = require('./routes');
-
-let port = 8088; //服务器端口号
+const Koa = require('koa')
+const router = require('./routes')
+const appConfig = require('./config').app
+const db = require('./utils/db')
 
 const app = new Koa();
-
 app.use(router.routes(), router.allowedMethods());
 
-app.listen(port,() => {
-  console.log(`Starting at port ${port}`)
-});
+db.on('error', () => {
+	console.log('数据库连接错误！')
+	process.exit()
+})
+
+db.once('open', () => {
+	console.log('数据库连接成功！');
+	app.listen(appConfig.port, () => {
+		console.log(`Starting at port ${appConfig.port}`)
+	});
+})
