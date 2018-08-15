@@ -1,3 +1,7 @@
+/**
+ * 配置项
+ */
+
 module.exports = {
 	app: {
 		port: 8088
