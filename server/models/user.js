@@ -9,11 +9,11 @@ const USER_SCHEMA = new Schema({
 	token: String,
 	createTime: {
 		type: Date,
-		default: new Date()
+		default: Date.now()
 	},
 	lastLoginTime: {
 		type: Date,
-		default: new Date()
+		default: Date.now()
 	}
 })
 
