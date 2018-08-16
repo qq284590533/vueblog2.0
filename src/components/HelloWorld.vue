@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-
+    <button @click="ajaxFun">click me</button>
   </div>
 </template>
 
@@ -13,6 +13,17 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+
+  methods:{
+    ajaxFun() {
+      axios.post('/admin/user', {
+        name: 'lin',
+        password: '123456'
+      }).then(res => {
+        console.log(res.data)
+      })
     }
   },
 

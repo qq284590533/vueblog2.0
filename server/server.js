@@ -3,8 +3,10 @@ const Koa = require('koa')
 const router = require('./routes')
 const appConfig = require('./config').app
 const db = require('./utils/db')
-
+const bodyParser = require('koa-bodyparser')
 const app = new Koa();
+
+app.use(bodyParser())
 
 //路由中间件
 app.use(router.routes(), router.allowedMethods());
