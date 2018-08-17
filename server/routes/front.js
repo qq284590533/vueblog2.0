@@ -1,5 +1,5 @@
-let Router = require('koa-router');
-let router = new Router();
+const Router = require('koa-router');
+const router = new Router();
 
 router.get('/', async (ctx, next) => {
     ctx.body = 'front'

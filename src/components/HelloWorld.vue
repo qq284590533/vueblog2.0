@@ -3,6 +3,11 @@
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     <button @click="ajaxFun">click me</button>
+    <input type="text" v-model="user.name" placeholder="昵称">
+    <input type="text" v-model="user.username" placeholder="账号">
+    <input type="text" v-model="user.password" placeholder="密码">
+    <input type="text" v-model="user.email" placeholder="邮箱">
+    <button @click="register(user)">register</button>
   </div>
 </template>
 
@@ -12,7 +17,13 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      user: {
+        name:null,
+        username:null,
+        password:null,
+        email:null
+      }
     }
   },
 
@@ -23,6 +34,11 @@ export default {
         password: '123456'
       }).then(res => {
         console.log(res.data)
+      })
+    },
+    register(obj){
+      axios.post('/admin/register', obj).then(res => {
+        console.log(res)
       })
     }
   },
