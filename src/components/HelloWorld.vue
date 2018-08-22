@@ -8,6 +8,9 @@
     <input type="text" v-model="user.password" placeholder="密码">
     <input type="text" v-model="user.email" placeholder="邮箱">
     <button @click="register(user)">register</button>
+    <input type="text" v-model="loginusername" placeholder="用户名">
+    <input type="password" v-model="loginpassword" placeholder="密码">
+    <button @click="login">登录</button>
   </div>
 </template>
 
@@ -22,7 +25,9 @@ export default {
         name:null,
         username:null,
         password:null,
-        email:null
+        email:null,
+        loginusername: null,
+        loginpassword: null
       }
     }
   },
@@ -40,11 +45,21 @@ export default {
       axios.post('/admin/register', obj).then(res => {
         console.log(res)
       })
+    },
+    login(){
+      let u = this.loginusername,
+          p = this.loginpassword;
+      axios.post('/admin/login', {
+        username:u,
+        password:p
+      }).then(res => {
+        console.log(res)
+      })
     }
   },
 
   mounted () {
-    axios.get('/front').then(res => {
+    axios.get('/admin').then(res => {
       console.log(res.data)
     })
   }
