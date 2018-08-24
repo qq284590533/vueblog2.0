@@ -1,30 +1,19 @@
+<style lang="less" scoped>
+
+</style>
+
+
 <template>
-    <div>
-        welcome to my blog!
-        <div style="height:100px; overflow:auto">
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-            welcome to my blog!
-            <br>
-        </div>
-        <div style="height:2000px"></div>
+    <div class="welcome">
+        <div class="bgbox" :style="bgboxstyle"></div>
     </div>
 </template>
+<script>
+export default {
+    data() {
+        return {
+
+        }
+    }
+}
+</script>

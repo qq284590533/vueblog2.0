@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import "babel-polyfill";
 import 'iview/dist/styles/iview.css'
 import './assets/less/base.less'
-import "babel-polyfill";
 
 Vue.config.productionTip = false
 
