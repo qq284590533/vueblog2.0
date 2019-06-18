@@ -10,7 +10,22 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/admin': {
+        target: 'http://localhost:8088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/admin': '/admin'
+        }
+      },
+      '/front': {
+        target: 'http://localhost:8088',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/front': '/front'
+        }
+      },
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -23,7 +38,7 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,
